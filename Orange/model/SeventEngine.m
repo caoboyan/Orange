@@ -726,4 +726,438 @@
     }];
 }
 
+
+//1.36 获取GO WITH ORANGER事件列表
+
+- (void)getGoWithOranger:(NSInteger) pagesize
+                 PageNum:(NSInteger) pagenum
+                   State:(NSInteger) state
+                 Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+         completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:@(state) forKey:@"state"];
+    NSDictionary* finalDic = @{@"func_name" : @"GetGoWithOranger",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+
+}
+
+//1.37 增加GO WITH ORANGER事件列表
+
+- (void)addGoWithOranger:(NSInteger)EID
+                   ETYPE:(NSString *)ETYPE
+                   TOPIC:(NSString *)TOPIC
+                 CONTENT:(NSString *)CONTENT
+                 MAX_NUM:(NSInteger)MAX_NUM
+                   COSTS:(NSString *)COSTS
+                 ADDRESS:(NSString *)ADDRESS
+               STARTDATE:(NSString *)STARTDATE
+                STOPDATE:(NSString *)STOPDATE
+               LONGITUDE:(NSString *)LONGITUDE
+                LATITUDE:(NSString *)LATITUDE
+                   STATE:(NSInteger)STATE
+                 MIN_NUM:(NSInteger)MIN_NUM
+                    TIME:(NSString *)TIME
+                 Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+         completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:@(EID) forKey:@"EID"];
+    [dict setObject:ETYPE forKey:@"ETYPE"];
+    [dict setObject:TOPIC forKey:@"TOPIC"];
+    [dict setObject:CONTENT forKey:@"CONTENT"];
+    [dict setObject:@(MAX_NUM) forKey:@"MAX_NUM"];
+    [dict setObject:COSTS forKey:@"COSTS"];
+    [dict setObject:ADDRESS forKey:@"ADDRESS"];
+    [dict setObject:STARTDATE forKey:@"STARTDATE"];
+    [dict setObject:STOPDATE forKey:@"STOPDATE"];
+    [dict setObject:LONGITUDE forKey:@"LONGITUDE"];
+    [dict setObject:LATITUDE forKey:@"LATITUDE"];
+    [dict setObject:@(STATE) forKey:@"STATE"];
+    [dict setObject:@(MIN_NUM) forKey:@"MIN_NUM"];
+    [dict setObject:TIME forKey:@"TIME"];
+    NSDictionary* finalDic = @{@"func_name" : @"AddGoWithOranger",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+
+//1.38 删除GO WITH ORANGER事件列表
+- (void)deleteGoWithOranger:(NSInteger)eid
+                    Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+            completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:@(eid) forKey:@"eid"];
+    NSDictionary* finalDic = @{@"func_name" : @"DeleteGoWithOranger",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+
+//1.39 获取oranger活动人员
+- (void)getOrangeMember:(NSInteger)eid
+          schedule_date:(NSString *)schedule_date
+               pagesize:(NSInteger)pagesize
+                pagenum:(NSInteger)pagenum
+                Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+        completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:@(eid) forKey:@"eid"];
+    [dict setObject:schedule_date forKey:@"schedule_date"];
+    [dict setObject:@(pagesize) forKey:@"pagesize"];
+    [dict setObject:@(pagenum) forKey:@"pagenum"];
+    NSDictionary* finalDic = @{@"func_name" : @"GetOrangerMember",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+
+//1.40 添加oranger活动人员AddOrangerMember
+- (void)addOrangeMember:(NSInteger)oid
+                    EID:(NSInteger)EID
+                    UID:(NSInteger)UID
+          SCHEDULE_DATE:(NSString *)SCHEDULE_DATE
+             APPLY_DATE:(NSString *)APPLY_DATE
+                Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+        completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:@(oid) forKey:@"id"];
+    [dict setObject:@(EID) forKey:@"EID"];
+    [dict setObject:@(UID) forKey:@"UID"];
+    [dict setObject:SCHEDULE_DATE forKey:@"SCHEDULE_DATE"];
+    [dict setObject:APPLY_DATE forKey:@"APPLY_DATE"];
+    NSDictionary* finalDic = @{@"func_name" : @"GetOrangerMember",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+
+//1.41 删除OrangerMember
+- (void)deleteOrangeMember:(NSInteger)oid
+                   Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+           completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:@(oid) forKey:@"id"];
+    NSDictionary* finalDic = @{@"func_name" : @"DeleteOrangerMember",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+
+//1.42 获取用户参与的GO WITH ORANGER事件列表
+- (void)getGoWithOrangerByUID:(NSInteger)uid
+                        state:(NSInteger)state
+                     pagesize:(NSString *)pagesize
+                      pagenum:(NSString *)pagenum
+                      Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+              completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:@(uid) forKey:@"uid"];
+    [dict setObject:@(state) forKey:@"state"];
+    [dict setObject:pagesize forKey:@"pagesize"];
+    [dict setObject:pagenum forKey:@"pagenum"];
+    
+    NSDictionary* finalDic = @{@"func_name" : @"GetGoWithOrangerbyUID",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+
+//1.43 创建群聊
+- (void)createChatGroup:(NSString *)groupname
+          descscription:(NSString *)descscription
+                  owner:(NSString *)owner
+               maxusers:(NSInteger)maxusers
+                members:(NSString *)members
+            grouppublic:(NSString *)grouppublic
+                Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+        completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:groupname forKey:@"groupname"];
+    [dict setObject:descscription forKey:@"descscription"];
+    [dict setObject:owner forKey:@"owner"];
+    [dict setObject:@(maxusers) forKey:@"maxusers"];
+    [dict setObject:members forKey:@"members"];
+    [dict setObject:grouppublic forKey:@"grouppublic"];
+    
+    NSDictionary* finalDic = @{@"func_name" : @"CreateChatGroup",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+
+//1.44更新群聊图片
+- (void)updateChatgroupPicUrl:(NSString *)groupid
+                  grouppicurl:(NSString *)grouppicurl
+                      Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+              completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:groupid forKey:@"groupid"];
+    [dict setObject:grouppicurl forKey:@"grouppicurl"];
+    NSDictionary* finalDic = @{@"func_name" : @"UpdateChatgroupPicUrl",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+
+//1.45获取群成员
+- (void)getChatGroupMembers:(NSString *)groupid
+                    Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+            completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:groupid forKey:@"groupid"];
+    NSDictionary* finalDic = @{@"func_name" : @"GetChatGroupMembers",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+
+
+//1.46 添加单个群成员
+- (void)addChatGroupMember:(NSString *)groupid
+                  username:(NSString *)username
+                   Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+           completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:groupid forKey:@"groupid"];
+    [dict setObject:username forKey:@"username"];
+    NSDictionary* finalDic = @{@"func_name" : @"AddChatGroupMember",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+
+//1.47 添加多个群成员
+- (void)addChatGroupMembers:(NSString *)groupid
+                      users:(NSString *)users
+                    Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+            completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:groupid forKey:@"groupid"];
+    [dict setObject:users forKey:@"users"];
+    NSDictionary* finalDic = @{@"func_name" : @"AddChatGroupMembers",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+//1.48 删除群成员
+- (void)deleteChatGroupMember:(NSString *)groupid
+                     username:(NSString *)username
+                      Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+              completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:groupid forKey:@"groupid"];
+    [dict setObject:username forKey:@"username"];
+    NSDictionary* finalDic = @{@"func_name" : @"DeleteChatGroupMember",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+
+//1.50 转让群组
+- (void)ChangeChatGroupOwner:(NSString *)groupid
+                    username:(NSString *)username
+                     Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+             completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:groupid forKey:@"groupid"];
+    [dict setObject:username forKey:@"username"];
+    NSDictionary* finalDic = @{@"func_name" : @"ChangeChatGroupOwner",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+//1.51 删除群组
+- (void)deleteChatGroup:(NSString *)groupid
+                Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+        completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler{
+    NSMutableDictionary *dict;
+    if (extra == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }else {
+        dict = [[NSMutableDictionary alloc] initWithDictionary:extra];
+    }
+    
+    [dict setObject:groupid forKey:@"groupid"];
+    NSDictionary* finalDic = @{@"func_name" : @"DeleteChatGroup",
+                               @"encrypt" : encrypt,
+                               @"func_param" : dict};
+    [self postNetworkRequst:nil parameters:finalDic completeHandler:^(AFHTTPRequestOperation *operation, id data, NSError *error) {
+        if (error == nil) {
+            handler(data, YES, nil);
+        }else{
+            handler(nil, NO, error);
+        }
+    }];
+}
+
 @end

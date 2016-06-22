@@ -189,6 +189,113 @@
                    Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
            completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
 
+//1.36 获取GO WITH ORANGER事件列表
 
+- (void)getGoWithOranger:(NSInteger) pagesize
+                 PageNum:(NSInteger) pagenum
+                   State:(NSInteger) state
+                 Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+         completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+
+//1.37 增加GO WITH ORANGER事件列表
+
+- (void)addGoWithOranger:(NSInteger)EID
+                   ETYPE:(NSString *)ETYPE
+                   TOPIC:(NSString *)TOPIC
+                 CONTENT:(NSString *)CONTENT
+                 MAX_NUM:(NSInteger)MAX_NUM
+                   COSTS:(NSString *)COSTS
+                 ADDRESS:(NSString *)ADDRESS
+               STARTDATE:(NSString *)STARTDATE
+                STOPDATE:(NSString *)STOPDATE
+               LONGITUDE:(NSString *)LONGITUDE
+                LATITUDE:(NSString *)LATITUDE
+                   STATE:(NSInteger)STATE
+                 MIN_NUM:(NSInteger)MIN_NUM
+                    TIME:(NSString *)TIME
+                 Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+         completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+
+
+//1.38 删除GO WITH ORANGER事件列表
+- (void)deleteGoWithOranger:(NSInteger)eid
+                    Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+            completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+
+//1.39 获取oranger活动人员
+- (void)getOrangeMember:(NSInteger)eid
+          schedule_date:(NSString *)schedule_date
+               pagesize:(NSInteger)pagesize
+                pagenum:(NSInteger)pagenum
+                Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+        completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+
+//1.40 添加oranger活动人员AddOrangerMember
+- (void)addOrangeMember:(NSInteger)oid
+                    EID:(NSInteger)EID
+                    UID:(NSInteger)UID
+          SCHEDULE_DATE:(NSString *)SCHEDULE_DATE
+             APPLY_DATE:(NSString *)APPLY_DATE
+                Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+        completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+
+//1.41 删除OrangerMember
+- (void)deleteOrangeMember:(NSInteger)oid
+                   Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+           completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+
+//1.42 获取用户参与的GO WITH ORANGER事件列表
+- (void)getGoWithOrangerByUID:(NSInteger)uid
+                        state:(NSInteger)state
+                     pagesize:(NSString *)pagesize
+                      pagenum:(NSString *)pagenum
+                      Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+              completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+
+//1.43 创建群聊
+- (void)createChatGroup:(NSString *)groupname
+          descscription:(NSString *)descscription
+                  owner:(NSString *)owner
+               maxusers:(NSInteger)maxusers
+                members:(NSString *)members
+            grouppublic:(NSString *)grouppublic
+                Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+        completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+
+//1.44更新群聊图片
+- (void)updateChatgroupPicUrl:(NSString *)groupid
+                  grouppicurl:(NSString *)grouppicurl
+                      Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+              completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+//1.45获取群成员
+- (void)getChatGroupMembers:(NSString *)groupid
+                    Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+            completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+//1.46 添加单个群成员
+- (void)addChatGroupMember:(NSString *)groupid
+                  username:(NSString *)username
+                   Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+           completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+//1.47 添加多个群成员
+- (void)addChatGroupMembers:(NSString *)groupid
+                      users:(NSString *)users
+                    Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+            completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+//1.48 删除群成员
+- (void)deleteChatGroupMember:(NSString *)groupid
+                     username:(NSString *)username
+                      Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+              completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+//1.49 获取用户参与的群
+//1.50 转让群组
+- (void)ChangeChatGroupOwner:(NSString *)groupid
+                    username:(NSString *)username
+                     Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+             completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
+
+//1.51 删除群组
+- (void)deleteChatGroup:(NSString *)groupid
+                Encrypt:(NSString*) encrypt Extra:(NSDictionary*) extra
+        completeHandler:(void(^)(id data, BOOL success, NSError* error)) handler;
 
 @end

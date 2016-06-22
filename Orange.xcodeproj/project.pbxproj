@@ -2716,7 +2716,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Orange/3rd",
 				);
-				GCC_PREFIX_HEADER = /Users/boyancao/Downloads/Orange/Orange/resources/Orange.pch;
+				GCC_PREFIX_HEADER = "$(inherited)$(PROJECT_DIR)/Orange/resources/Orange.pch";
 				INFOPLIST_FILE = Orange/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2742,7 +2742,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Orange/3rd",
 				);
-				GCC_PREFIX_HEADER = /Users/boyancao/Downloads/Orange/Orange/resources/Orange.pch;
+				GCC_PREFIX_HEADER = "$(inherited)$(PROJECT_DIR)/Orange/resources/Orange.pch";
 				INFOPLIST_FILE = Orange/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

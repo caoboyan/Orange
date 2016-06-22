@@ -212,7 +212,7 @@
 
 - (BOOL) validateEmail:(NSString *)email
 {
-    NSString *emailRegex = @"[A-Z0-9a-z._%+-]{1,}+@[A-Za-z0-9.-]{1,}+\\.ac\\.uk";
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.ac.uk";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:email];
 }
